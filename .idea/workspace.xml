@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="277fe8f5-68e5-4dd6-9a63-7d3982c3ae0d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/doctor.jade" afterPath="$PROJECT_DIR$/views/doctor.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/patient.jade" afterPath="$PROJECT_DIR$/views/patient.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="backend.iws" />
@@ -39,51 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doctor.jade" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/doctor.jade">
+      <file leaf-file-name="patient.jade" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/patient.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40350878" vertical-offset="1539" max-vertical-offset="2465">
-              <caret line="100" column="31" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patientData.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/patientData.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="1156">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patient-sent.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/patient-sent.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pharmacy-sent.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/pharmacy-sent.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pharmacist.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/pharmacist.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.33834586" vertical-offset="783" max-vertical-offset="3519">
+              <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -107,11 +67,11 @@
         <option value="$PROJECT_DIR$/public/javascripts/main.js" />
         <option value="$PROJECT_DIR$/views/pharmacy.jade" />
         <option value="$PROJECT_DIR$/public/javascripts/pharmacist.js" />
-        <option value="$PROJECT_DIR$/views/patient.jade" />
         <option value="$PROJECT_DIR$/views/doctor-sent.jade" />
         <option value="$PROJECT_DIR$/views/patient-sent.jade" />
         <option value="$PROJECT_DIR$/views/pharmacy-sent.jade" />
         <option value="$PROJECT_DIR$/views/doctor.jade" />
+        <option value="$PROJECT_DIR$/views/patient.jade" />
       </list>
     </option>
   </component>
@@ -445,12 +405,12 @@
       <workItem from="1446977869503" duration="333000" />
       <workItem from="1446978225480" duration="3563000" />
       <workItem from="1446982946853" duration="117000" />
-      <workItem from="1446983082872" duration="11309000" />
+      <workItem from="1446983082872" duration="11379000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15322000" />
+    <option name="totallyTimeSpent" value="15392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
@@ -763,26 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/patient.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32753164" vertical-offset="3006" max-vertical-offset="3638">
-          <caret line="189" column="45" selection-start-line="189" selection-start-column="45" selection-end-line="189" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/doctor-sent.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19767442" vertical-offset="0" max-vertical-offset="516">
           <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.275862" vertical-offset="1508" max-vertical-offset="5512">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -823,6 +767,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40350878" vertical-offset="1539" max-vertical-offset="2465">
           <caret line="100" column="31" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.275862" vertical-offset="1508" max-vertical-offset="5512">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/patient.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33834586" vertical-offset="783" max-vertical-offset="3519">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
           <folding />
         </state>
       </provider>
