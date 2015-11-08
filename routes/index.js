@@ -70,7 +70,7 @@ doctorService.sendToPatient = function(assetId) {
     var fromWalletToken = doctorPrivateKey;
     var toWallet = patientWallet;
     var issuerName = "Dr. Doctor";
-    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
+    coluService.transferAsset(doctorColu, assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
 
@@ -92,7 +92,7 @@ patientService.sendToPharmacy = function(assetId) {
     var fromWalletToken = patientPrivateKey;
     var toWallet = pharmacyWallet;
     var issuerName = "Mr. Patient";
-    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
+    coluService.transferAsset(patientColu, assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
 
@@ -111,7 +111,7 @@ pharmacyService.sendToDoctor = function(assetId) {
     var fromWalletToken = pharmacyPrivateKey;
     var toWallet = doctorWallet;
     var issuerName = "Mr. Pharmacist";
-    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
+    coluService.transferAsset(pharmacyColu, assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
 
@@ -138,15 +138,19 @@ coluService.transferAsset = function (colu, assetId, quantity, fromWallet, fromW
             'description': quantity + ' mg of Vallium'
         }
     };
-    colu.sendAsset(payload, function (err, body) {
-        if (err) {
-            console.error(err);
-            return false;
-        }else{
-            console.log("Body: ", body);
-            return true;
-        }
-    })
+
+    console.log("Sending " + quantity + ' mg of Vallium' + "\n from " + fromWallet + "\n to " + toWallet);
+
+    console.log("MOCK");
+    //colu.sendAsset(payload, function (err, body) {
+    //    if (err) {
+    //        console.error(err);
+    //        return false;
+    //    }else{
+    //        console.log("Body: ", body);
+    //        return true;
+    //    }
+    //});
 };
 coluService.initialize = function() {
     console.log("initalizing Colu for doctor, patient and pharmacy...");
