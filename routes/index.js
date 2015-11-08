@@ -81,7 +81,7 @@ patientService.get = function (req, res, next) {
 
 
     var assetId = req.param("assetId");
-    patientService.sendToPatient(assetId);
+    patientService.sendToPharmacy(assetId);
     console.log("patient service here...");
 
 };
@@ -101,7 +101,7 @@ pharmacyService = {};
 pharmacyService.post = function (req, res, next) {
     console.log("pharmacy service here...");
     var assetId = req.param("assetId");
-    pharmacyService.sendToPatient(assetId);
+    pharmacyService.sendToDoctor(assetId);
 };
 
 
@@ -121,9 +121,9 @@ pharmacyService.sendToDoctor = function(assetId) {
 
 
 var coluService = {};
-coluService.transferAsset = function (colu, assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
+coluService.transferAsset = function (colu, ignoredAssetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
     //var phoneNumber = '+353899822774';
-    //var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
+    var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
 
     var payload = {
         from: [fromWallet],
@@ -141,16 +141,16 @@ coluService.transferAsset = function (colu, assetId, quantity, fromWallet, fromW
 
     console.log("Sending " + quantity + ' mg of Vallium' + "\n from " + fromWallet + "\n to " + toWallet);
 
-    console.log("MOCK");
-    //colu.sendAsset(payload, function (err, body) {
-    //    if (err) {
-    //        console.error(err);
-    //        return false;
-    //    }else{
-    //        console.log("Body: ", body);
-    //        return true;
-    //    }
-    //});
+    //console.log("MOCK");
+    colu.sendAsset(payload, function (err, body) {
+        if (err) {
+            console.error(err);
+            return false;
+        } else {
+            console.log("Body: ", body);
+            return true;
+        }
+    });
 };
 coluService.initialize = function() {
     console.log("initalizing Colu for doctor, patient and pharmacy...");
