@@ -2,16 +2,13 @@ var express = require('express');
 var Colu = require('colu');
 var router = express.Router();
 
-var COLU_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXRhcmFqZHV0dGEwMUBnbWFpbC5jb20iLCJleHAiOiIyMDE1LTExLTA3VDE2OjE0OjQxLjU3M1oiLCJ0eXBlIjoiYXBpX2tleSJ9.yg52G1WePJVKEHfKKChM8voDby7D7WePM_A712w3oFE';
-
-var coluSettings = {
-    network: 'mainnet',
-    apiKey: COLU_API_KEY,
-    privateSeed: '70ae09fcedef12d2e846906157c52b22780ac836d3bb7c20fc7c81dff341cb62'
-};
-
 
 //COLU CONFIG
+var COLU_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXRhcmFqZHV0dGEwMUBnbWFpbC5jb20iLCJleHAiOiIyMDE1LTExLTA3VDE2OjE0OjQxLjU3M1oiLCJ0eXBlIjoiYXBpX2tleSJ9.yg52G1WePJVKEHfKKChM8voDby7D7WePM_A712w3oFE';
+
+var patientColu;
+var pharmacyColu;
+var doctorColu;
 
 //Patient
 var patientWallet = "";
@@ -19,11 +16,13 @@ var patientPrivateKey = "";
 
 //Doctor
 var doctorWallet = "";
-var doctorPrivateKey = "";
+var doctorPrivateKey = "70ae09fcedef12d2e846906157c52b22780ac836d3bb7c20fc7c81dff341cb62";
 
 //Pharmacy
 var pharmacyWallet = "";
 var pharmacyPrivateKey = "";
+
+
 
 
 
@@ -110,8 +109,14 @@ pharmacyService.sendToDoctor = function(assetId) {
     coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
+
+
+
+
+
+
 var coluService = {};
-coluService.transferAsset = function (assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
+coluService.transferAsset = function (colu, assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
     //var phoneNumber = '+353899822774';
     //var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
 
@@ -139,12 +144,39 @@ coluService.transferAsset = function (assetId, quantity, fromWallet, fromWalletT
     })
 };
 coluService.initialize = function() {
-    console.log("initalizing Colu...");
-    var colu = new Colu(coluSettings);
-    colu.init();
+    console.log("initalizing Colu for doctor, patient and pharmacy...");
 
-    colu.on('connect', function () {
-        console.log("Colu initialized correctly");
+    var doctorColuConfig = {
+        network: 'mainnet',
+        apiKey: COLU_API_KEY,
+        privateSeed: doctorPrivateKey
+    };
+    var patientColuConfig = {
+        network: 'mainnet',
+        apiKey: COLU_API_KEY,
+        privateSeed: patientPrivateKey
+    };
+    var pharmacyColuConfig = {
+        network: 'mainnet',
+        apiKey: COLU_API_KEY,
+        privateSeed: pharmacyPrivateKey
+    };
+
+    doctorColu = new Colu(doctorColuConfig);
+    doctorColu.init();
+    pharmacyColu = new Colu(pharmacyColuConfig);
+    pharmacyColu.init();
+    patientColu = new Colu(patientColuConfig);
+    patientColu.init();
+
+    doctorColu.on('connect', function () {
+        console.log("doctorColu initialized correctly");
+    });
+    pharmacyColu.on('connect', function () {
+        console.log("pharmacyColu initialized correctly");
+    });
+    patientColu.on('connect', function () {
+        console.log("patientColu initialized correctly");
     });
 };
 
