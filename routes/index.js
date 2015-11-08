@@ -62,8 +62,13 @@ doctorService.post = function (req, res, next) {
 
 };
 
-doctorService.sendToPatient = function() {
-
+doctorService.sendToPatient = function(assetId) {
+    var quantity = 1;
+    var fromWallet = doctorWallet;
+    var fromWalletToken = doctorPrivateKey;
+    var toWallet = patientWallet;
+    var issuerName = "Dr. Doctor";
+    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
 
@@ -71,22 +76,19 @@ doctorService.sendToPatient = function() {
 
 patientService = {};
 patientService.get = function (req, res, next) {
-    var patientName = req.param('patientName');
-    var patientDob = req.param('patientDob');
-    var patientAddress = req.param('patientAddress');
 
-    var quantity = 25;
-    var fromWallet = patientWallet;
-    var toWallet = pharmacyWallet;
-    var issuerName = "Mr. Patient";
-    coluService.transferAsset(quantity, fromWallet, toWallet, issuerName);
 
     console.log("patient service here...");
 
 };
 
-patientService.sendToPharmacy = function() {
-
+patientService.sendToPharmacy = function(assetId) {
+    var quantity = 1;
+    var fromWallet = patientWallet;
+    var fromWalletToken = patientPrivateKey;
+    var toWallet = pharmacyWallet;
+    var issuerName = "Mr. Patient";
+    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
 
@@ -99,21 +101,24 @@ pharmacyService.post = function (req, res, next) {
 };
 
 
-pharmacyService.sendToDoctor = function() {
-
-
+pharmacyService.sendToDoctor = function(assetId) {
+    var quantity = 1;
+    var fromWallet = pharmacyWallet;
+    var fromWalletToken = pharmacyPrivateKey;
+    var toWallet = doctorWallet;
+    var issuerName = "Mr. Pharmacist";
+    coluService.transferAsset(assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName);
 };
 
-
 var coluService = {};
-coluService.transferAsset = function (quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
-    var phoneNumber = '+353899822774';
+coluService.transferAsset = function (assetId, quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
+    //var phoneNumber = '+353899822774';
     //var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
 
     var payload = {
-        from: [fromAddress],
+        from: [fromWallet],
         to: [{
-            phoneNumber: phoneNumber,
+            address: toWallet,
             assetId: assetId,
             amount: quantity
         }],
