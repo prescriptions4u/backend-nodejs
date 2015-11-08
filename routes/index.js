@@ -11,16 +11,16 @@ var pharmacyColu;
 var doctorColu;
 
 //Patient
-var patientWallet = "";
-var patientPrivateKey = "";
+var patientWallet = "1Hfez4FX7YkMXPgHGvpXEUbGWg6fTAH468";
+var patientPrivateKey = "05e670d91a1afb5d1ed4145ce9ec7b4bb244e85fcfc8592b5fea0c495e66fadf";
 
 //Doctor
-var doctorWallet = "";
+var doctorWallet = "14MCNqtw74vnBnV4MzUfnRxYW9TbcW5FcU";
 var doctorPrivateKey = "70ae09fcedef12d2e846906157c52b22780ac836d3bb7c20fc7c81dff341cb62";
 
 //Pharmacy
-var pharmacyWallet = "";
-var pharmacyPrivateKey = "";
+var pharmacyWallet = "1KJbhVsA2kEF8JfxvVoBcQSnxS5zh1krvj";
+var pharmacyPrivateKey = "cfb26f3c46dc1af0559a7be01c6f0599382b2ee453a6689e5072b8dd1e3d7834";
 
 
 
