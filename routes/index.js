@@ -32,18 +32,30 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/patient', function(req, res, next) {
-    patientService.get(req, res, next);
     res.render('patient', { title: 'Express' });
 });
 
+router.get('/patient/send', function(req, res, next) {
+    patientService.get(req, res, next);
+    res.render('patient-sent', { title: 'Express' });
+});
+
 router.get('/doctor', function(req, res, next) {
-    doctorService.post(req, res, next);
     res.render('doctor', { title: 'Express' });
 });
 
+router.get('/doctor/send', function(req, res, next) {
+    doctorService.post(req, res, next);
+    res.render('doctor-sent', { title: 'Express' });
+});
+
 router.get('/pharmacy', function(req, res, next) {
-    pharmacyService.post(req, res, next);
     res.render('pharmacy', { title: 'Express' });
+});
+
+router.get('/pharmacy/send', function(req, res, next) {
+    pharmacyService.post(req, res, next);
+    res.render('pharmacy-sent', { title: 'Express' });
 });
 
 router.get('/about', function(req, res, next) {
