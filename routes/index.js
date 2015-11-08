@@ -59,6 +59,9 @@ doctorService = {};
 doctorService.post = function (req, res, next) {
     console.log("doctor service here...");
 
+    var assetId = req.param("assetId");
+    doctorService.sendToPatient(assetId);
+
 };
 
 doctorService.sendToPatient = function(assetId) {
@@ -77,6 +80,8 @@ patientService = {};
 patientService.get = function (req, res, next) {
 
 
+    var assetId = req.param("assetId");
+    patientService.sendToPatient(assetId);
     console.log("patient service here...");
 
 };
@@ -95,8 +100,8 @@ patientService.sendToPharmacy = function(assetId) {
 pharmacyService = {};
 pharmacyService.post = function (req, res, next) {
     console.log("pharmacy service here...");
-    console.log(req.param("hello"));
-
+    var assetId = req.param("assetId");
+    pharmacyService.sendToPatient(assetId);
 };
 
 
