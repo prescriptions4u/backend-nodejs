@@ -57,7 +57,7 @@ html.
                     <div class="input-group">
                         <input type="text" class="form-control" id="patientKey" name="patientKey" placeholder="Enter Patient Key" value="uf2irmf3d02mi3em2j39829nu2" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            <button id="getPatient" value="Get Patient" class="btn btn-info pull-right">
+                            <button id="getPatient" value="Get Patient" class="btn btn-info pull-right">Lookup patient</button>
                         </div>
                 </div>
             </div>
@@ -184,7 +184,9 @@ html.
                             </div>
                         {{/for}}
                             <div class="dispense-buttons">
-                            <button type="button" class="btn btn-info dispensed-button">Dispensed</button>
+                            <form method="get" action="/patient/send">
+                                <input type="submit" value="Dispense" class="btn btn-info pull-right">
+                            </form>
                             <button type="button" class="btn btn-danger rejected-button">Rejected</button>
                         </div>
                         </div>
@@ -195,9 +197,7 @@ html.
             </div>
     </div>
     </div>
-    <form method="get" action="/patient/send">
-        <input type="submit" value="Submit" class="btn btn-info pull-right">
-    </form>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
