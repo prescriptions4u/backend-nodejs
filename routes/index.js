@@ -6,11 +6,26 @@ var COLU_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXRhcmFqZHV
 
 var coluSettings = {
     network: 'mainnet',
-    apiKey: apikey,
+    apiKey: COLU_API_KEY,
     privateSeed: '70ae09fcedef12d2e846906157c52b22780ac836d3bb7c20fc7c81dff341cb62'
 };
 
-var colu = new Colu(settings);
+
+//COLU CONFIG
+
+//Patient
+var patientWallet = "";
+var patientPrivateKey = "";
+
+//Doctor
+var doctorWallet = "";
+var doctorPrivateKey = "";
+
+//Pharmacy
+var pharmacyWallet = "";
+var pharmacyPrivateKey = "";
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -56,10 +71,15 @@ doctorService.sendToPatient = function() {
 
 patientService = {};
 patientService.get = function (req, res, next) {
-    var patientName = req.param('');
-    var patientDob = req.param('');
-    var patientAddress = req.param('');
-    var patientPrivateKey = req.param('');
+    var patientName = req.param('patientName');
+    var patientDob = req.param('patientDob');
+    var patientAddress = req.param('patientAddress');
+
+    var quantity = 25;
+    var fromWallet = patientWallet;
+    var toWallet = pharmacyWallet;
+    var issuerName = "Mr. Patient";
+    coluService.transferAsset(quantity, fromWallet, toWallet, issuerName);
 
     console.log("patient service here...");
 
@@ -86,9 +106,9 @@ pharmacyService.sendToDoctor = function() {
 
 
 var coluService = {};
-coluService.transferAsset = function (quantity, fromAddress, toAddress, token, issuerName) {
+coluService.transferAsset = function (quantity, fromWallet, fromWalletToken, toWallet, issuerName) {
     var phoneNumber = '+353899822774';
-    var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
+    //var assetId = "LEL5H3V37xXRxZGdwhMXUYXrjnEa1xwmNS8rQ";  //We got billions!!!
 
     var payload = {
         from: [fromAddress],
@@ -113,12 +133,16 @@ coluService.transferAsset = function (quantity, fromAddress, toAddress, token, i
         }
     })
 };
+coluService.initialize = function() {
+    console.log("initalizing Colu...");
+    var colu = new Colu(coluSettings);
+    colu.init();
 
+    colu.on('connect', function () {
+        console.log("Colu initialized correctly");
+    });
+};
 
-
-
-
-
-
+coluService.initialize();
 
 module.exports = router;
