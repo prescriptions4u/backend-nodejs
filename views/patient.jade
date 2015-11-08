@@ -28,36 +28,36 @@ html.
         </div>
     <div class="container">
     <div class="row" id="getPatientForm">
-        <form role="form" method="get" action="/patient/send">
+        <form role="form">
             <div class="col-lg-6">
                 <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
                 <div class="form-group">
                     <label for="patientName">Patient Name</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="patientName" id="patientName" placeholder="Enter Name" required>
+                        <input type="text" class="form-control" name="patientName" id="patientName" placeholder="Enter Name" value="John Doe" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="patientDob">Patient DOB</label>
                     <div class="input-group">
-                        <input type="date" class="form-control" id="patientDob" name="patientDob" placeholder="Enter DOB" required>
+                        <input type="date" class="form-control" id="patientDob" name="patientDob" placeholder="Enter DOB" value="21/03/1984" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="patientAddress">Patient Address</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="patientAddress" name="patientAddress" placeholder="Enter Patient's Address" required>
+                        <input type="text" class="form-control" id="patientAddress" name="patientAddress" placeholder="Enter Patient's Address" value="1 Palace Street, Dublin" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="patientKey">Patient Key</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="patientKey" name="patientKey" placeholder="Enter Patient Key" required>
+                        <input type="text" class="form-control" id="patientKey" name="patientKey" placeholder="Enter Patient Key" value="uf2irmf3d02mi3em2j39829nu2" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
-                            <input type="submit" value="Get Patient" class="btn btn-info pull-right">
+                            <button id="getPatient" value="Get Patient" class="btn btn-info pull-right">
                         </div>
                 </div>
             </div>
@@ -195,10 +195,15 @@ html.
             </div>
     </div>
     </div>
+    <form method="get" action="/patient/send">
+        <input type="submit" value="Submit" class="btn btn-info pull-right">
+    </form>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <link rel="stylesheet" href="./css/main.css">
         <script src="/javascripts/jsrender.min.js"></script>
     <script src="/javascripts/pharmacist.js"></script>
+
+
 </body>
