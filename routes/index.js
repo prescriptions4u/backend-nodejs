@@ -15,12 +15,12 @@ router.get('/omg', function(req, res, next) {
     res.render('omg', { title: 'Express' });
 });
 
-router.post('/doctor', function(req, res, next) {
+router.get('/doctor', function(req, res, next) {
     doctorService.post(req, res, next);
     res.render('doctor', { title: 'Express' });
 });
 
-router.post('/pharmacy', function(req, res, next) {
+router.get('/pharmacy', function(req, res, next) {
     pharmacyService.post(req, res, next);
     res.render('pharmacy', { title: 'Express' });
 });
